@@ -1,0 +1,64 @@
+
+::ng-deep.mat-drawer-backdrop.ng-star-inserted.mat-drawer-shown {
+    background-color: black;
+    opacity: 0.5;
+  }
+  
+  ::ng-deep .mat-drawer-transition .mat-drawer-backdrop {
+    transition-property: none;
+  }
+  
+  .mat-drawer.mat-drawer-end {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 600px;
+    background:white;   
+    position: fixed;
+    overflow: auto;
+  }
+
+  ::ng-deep.mat-drawer-inner-container{
+      overflow: hidden;
+  }
+  
+  .mat-drawer {
+    .header {
+      height: 64px;
+      display: flex;
+      align-items: center;
+      padding: 0px 24px;
+      font-size: 20px;
+      font-weight: 500;
+      border-bottom: 1px solid grey;
+    }
+    .container {
+      height: calc(100% - 64px);
+      .footer-continer{
+        height:64px;
+        display: flex;
+        padding: 0px 24px;
+        justify-content: space-between;
+        border-top: 1px solid grey;
+        align-items: center;
+        button{
+            background-color: blue;
+        }
+      }
+      .body-container{
+        height: calc(100% - 64px) ;
+        overflow: auto;
+        form{
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            mat-form-field{
+                width: 100%;
+            }
+        }
+      }
+    }
+  }
+  .container-wrap {
+    height: 100%;
+  }

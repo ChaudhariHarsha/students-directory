@@ -1,0 +1,74 @@
+<mat-sidenav-container (backdropClick)="onBackdropClicked()">
+    <mat-sidenav
+      #drawer
+      [autoFocus]="false"
+      mode="over"
+      position="end"
+      style="width: 500px;"
+      (openedChange)="isDrawerOpened()"
+      disableClose
+    >
+      <div class="container-wrap" >
+        <div class="header">
+          {{isEditable ? 'Edit':'Add'}} Student
+        </div>
+        <div class="container">
+         <div class="body-container">
+            <form [formGroup]="studentForm">
+                <mat-form-field class="example-full-width">
+                    <mat-label>First name</mat-label>
+                    <input matInput formControlName="name">
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Last name</mat-label>
+                    <input matInput formControlName="lastName">
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Email</mat-label>
+                    <input type="email" matInput  placeholder="Ex. pat@example.com" formControlName="email">
+                    <!-- @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
+                      <mat-error>Please enter a valid email address</mat-error>
+                    }
+                    @if (emailFormControl.hasError('required')) {
+                      <mat-error>Email is <strong>required</strong></mat-error>
+                    } -->
+                  </mat-form-field>
+
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Date of birth</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="dob">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker">
+                      <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                    </mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+
+                  <mat-form-field>
+                    <mat-label>Standard</mat-label>
+                    <mat-select formControlName="standard">
+                      <mat-option [value]="5">5 th</mat-option>
+                      <mat-option [value]="6">6 th</mat-option>
+                      <mat-option [value]="7">7 th</mat-option>
+                      <mat-option [value]="8">8 th</mat-option>
+                      <mat-option [value]="9">9 th</mat-option>
+                      <mat-option [value]="10">10 th</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                 
+                  <mat-radio-group aria-label="Select an option" formControlName="gender">
+                    <mat-label><b>Gender</b></mat-label>
+                    <mat-radio-button value="Male">Male</mat-radio-button>
+                    <mat-radio-button value="Female">Female</mat-radio-button>
+                    <mat-radio-button value="Others">Others</mat-radio-button>
+                </mat-radio-group>
+            </form>
+         </div>
+         <div class="footer-continer">
+            <button mat-flat-button (click)="onDoneClick()">Done</button>
+            <button mat-flat-button (click)="onBackdropClicked( )">Cancel</button>
+         </div>
+        </div>
+      </div>
+    </mat-sidenav>
+  </mat-sidenav-container>
