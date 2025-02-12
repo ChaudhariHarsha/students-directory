@@ -40,8 +40,11 @@ export class InfoTableComponent {
   }
 
   onDelete(studentId:number){
-    this.tableData= this.tableData.filter(d=>d.studentId!=studentId);
+    if (confirm("Are you sure, want to delete?")) {
+      this.tableData= this.tableData.filter(d=>d.studentId!=studentId);
     this.dataSource= new MatTableDataSource(this.tableData)
     this.snackBar.open('Student Deleted',undefined,{duration:2000});
+    }
+    
   }
 }
